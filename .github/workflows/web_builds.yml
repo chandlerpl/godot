@@ -32,8 +32,8 @@ jobs:
             sconsflags: threads=no
             artifact: true
 
-          - name: Template w/ Mono, release (target=template_release)
-            cache-name: web-template-mono
+          - name: Template w/ Mono, threads, release (target=template_release)
+            cache-name: web-template-threads-mono
             target: template_release
             sconsflags: >-
               module_mono_enabled=yes
