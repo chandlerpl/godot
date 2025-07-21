@@ -33,12 +33,12 @@ jobs:
             artifact: true
 
           - name: Template w/ Mono, threads, release (target=template_release)
-            cache-name: web-template-threads-mono
+            cache-name: web-template-mono
             target: template_release
             sconsflags: module_mono_enabled=yes disable_3d=yes disable_physics_2d=yes disable_physics_3d=yes threads=yes
             bin: ./bin/godot.web.template_release.wasm32.mono
             artifact: true
-            build-mono: true
+            build-mono: false
 
     steps:
       - name: Checkout
