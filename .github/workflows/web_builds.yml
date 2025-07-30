@@ -76,9 +76,9 @@ jobs:
         with:
           # Targeting the oldest version we want to support to ensure it still builds.
           dotnet-version: 8.0.100
-          cache: true
 
       - name: Setup wasm-tools
+        if: matrix.build-mono
         run: dotnet workload restore ./modules/mono/runtime/GetRuntimePack/GetRuntimePack.csproj
 
       - name: Compilation
