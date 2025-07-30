@@ -38,7 +38,7 @@ jobs:
             sconsflags: module_mono_enabled=yes disable_3d=yes disable_physics_2d=yes disable_physics_3d=yes threads=yes
             bin: ./bin/godot.web.template_release.wasm32.mono
             artifact: true
-            build-mono: false
+            build-mono: true
 
     steps:
       - name: Checkout
@@ -76,9 +76,10 @@ jobs:
         with:
           # Targeting the oldest version we want to support to ensure it still builds.
           dotnet-version: 8.0.100
+          cache: true
 
       - name: Setup wasm-tools
-        run: dotnet workload install wasm-tools
+        run: dotnet workload restore ./modules/mono/runtime/GetRuntimePack/GetRuntimePack.csproj
 
       - name: Compilation
         uses: ./.github/actions/godot-build
